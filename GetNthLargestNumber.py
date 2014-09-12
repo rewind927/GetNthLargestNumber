@@ -1,7 +1,7 @@
 import sys
 
 def printNum():
-    print ("---------- find number in the list ----------")
+#    print ("---------- find number in the list ----------")
     for num in array:
         print num
 
@@ -13,16 +13,20 @@ else:
     quit()
 
 array = [0]
-print "========== input data =========="
+#print "========== input data =========="
 f = open(sys.argv[1], 'r')
 for data in f:
-    print data
+    data = data.strip()
+#    print data
     i = 0
     while i < len(array):
-        if i < number and int(data) > int(array[i]):
-            array.insert(i,data)
-            if len(array) > number:
-                array.pop()
+        if int(data) > int(array[i]):
+            if i == 0:
+                array = [data] + array[:number-1]
+            elif i == number-1:
+                array = array[:number-1]+[data]
+            else :
+                array = array[:i] + [data] + array[i:number-1]
             break
         i+=1
 f.close()
