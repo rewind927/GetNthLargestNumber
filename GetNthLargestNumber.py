@@ -5,11 +5,6 @@ def printNum():
     for num in array:
         print num
 
-def swap(array,x,y):
-    tmp = array[x]
-    array[x] = array[y]
-    array[y] = tmp
-
 number = raw_input("Input number: ")
 if number.isdigit():
     number = int(number)
@@ -28,7 +23,7 @@ for data in f:
         i = number
         while i > 0:
             if array[i] > array[i-1]:
-               swap(array,i,i-1)
+               array[i], array[i-1] = array[i-1], array[i]
             else:
                 break
             i-=1
