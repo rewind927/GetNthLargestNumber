@@ -12,7 +12,7 @@ else:
     print("not digital number, break this loop!")
     quit()
 
-array = [0]*(number+1)
+array = [None]*(number+1)
 #print "========== input data =========="
 f = open(sys.argv[1], 'r')
 for data in f:
